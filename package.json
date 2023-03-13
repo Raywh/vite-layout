@@ -18,6 +18,7 @@
     "nprogress": "^0.2.0",
     "pinia": "^2.0.32",
     "query-string": "^8.1.0",
+    "vite-plugin-compression": "^0.5.1",
     "vue": "^3.2.47",
     "vue-router": "^4.1.6"
   },
