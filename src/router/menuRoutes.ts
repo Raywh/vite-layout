@@ -4,7 +4,8 @@
 import Layout from '@/components/Layout/index.vue'
 import { Grid, Calendar, List, Notebook, Ticket } from "@element-plus/icons-vue";
 
-export const private_routes = [
+
+export const private_routes= [
   {
     path: '/',
     component: Layout,

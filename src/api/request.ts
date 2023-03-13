@@ -66,7 +66,7 @@ interface IAnyMap {
 export interface IRequestOptions {
   headers?: IHeaderConfig;
   signal?: AbortSignal;
-  method?: EHttpMethods;
+  method: EHttpMethods;
   query?: IAnyMap;
   params?: IAnyMap;
   data?: IAnyMap;
@@ -90,11 +90,11 @@ const CAN_SEND_METHOD = ['POST', 'PUT', 'PATCH', 'DELETE'];
 
 class Http implements IHttpInterface {
   public async request<T>(url: string, options?: IRequestOptions, abortController?: AbortController): Promise<T> {
-    const r_time = new Date().getTime()
+    const r_time = '' + new Date().getTime()
     const request_id = MD5(r_time)
     const ak = 'xxxx'
     const sk = 'yyyy'
-    const signature = ak + sk + request_id + r_time + JSON.stringify(options.data)
+    const signature = ak + sk + request_id + r_time + JSON.stringify(options?.data)
 
     const opts: IRequestOptions = Object.assign({
       method: 'GET',
@@ -143,7 +143,7 @@ class Http implements IHttpInterface {
 
       const result: T = await res.json();
       return result;
-    } catch (e) {
+    } catch (e: any) {
       dealErrToast(e, abortController);
       return e;
     }

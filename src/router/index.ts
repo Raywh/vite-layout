@@ -1,19 +1,10 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory  } from 'vue-router'
+import　type { RouteRecordRaw  } from 'vue-router'
 
 import { private_routes } from './menuRoutes'
-// 定义登录前的可使用路由
-const constant_routes = [
-  {
-    path: '/redirect',
-    hidden: true,
-    children: [
-      {
-        path: '/redirect/:path(.*)',
-        component: () => import('@/views/redirect/index')
-      }
-    ]
-  },
 
+// 定义登录前的可使用路由
+const constant_routes: RouteRecordRaw[] = [
   {
     path: '/login',
     name: 'Login',
@@ -29,7 +20,7 @@ const constant_routes = [
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes: private_routes.concat(constant_routes)
+  routes: constant_routes.concat(private_routes)
 })
 
 export default router
